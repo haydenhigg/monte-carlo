@@ -76,7 +76,7 @@ class MonteCarlo:
 
         return {k: v / total_count for k, v in counts.items()}
 
-    def proportion(self, filter: Callable[Hashable, bool] = lambda _: True) -> float:
+    def proportion(self, filter: Callable[[Hashable], bool] = lambda _: True) -> float:
         return sum([v for k, v in self.frequencies().items() if filter(k)])
 
     def buckets(self, n: int, low: float, high: float) -> tuple[list[float], float]:
@@ -100,13 +100,15 @@ class MonteCarlo:
     def histogram(
         self,
         width: int = 79,
-        height: int = 23
+        height: int = 23,
+        low: Hashable = None,
+        high: Hashable = None,
     ) -> str:
         # calculate buckets
         min_displayable = 0.125 / height
 
-        low = min(self.results)
-        high = max(self.results)
+        low = low or min(self.results)
+        high = high or max(self.results)
 
         buckets, bucket_width = self.buckets(width, low, high)
 

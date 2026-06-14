@@ -58,7 +58,7 @@ class MonteCarlo:
         self.sampler = sampler or Function(random)
         self.results = []
 
-    def simulate(self, n: int = 1e5):
+    def simulate(self, n: int = 1e3):
         for _ in range(int(n)):
             self.results.append(self.sampler.sample())
 
@@ -97,7 +97,7 @@ class MonteCarlo:
 
         return ([bucket / max_bucket for bucket in buckets], bucket_width)
 
-    def visualize(
+    def histogram(
         self,
         width: int = 79,
         height: int = 23
@@ -130,7 +130,7 @@ class MonteCarlo:
             over_zero = False
 
             for i, bar in enumerate(histogram):
-                if not over_zero and low + bucket_width * i >= 0:
+                if not over_zero and low + bucket_width * (i + 0.5) >= 0:
                     over_zero = True
                     lines[iy] += '|'
 

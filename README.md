@@ -68,8 +68,7 @@ Some basic `Sampler` classes are provided in this package:
 
 This runs the trials and collects the results.
 
-- `MonteCarlo(sampler: Sampler = None)`: Create a new MonteCarlo with a specified `Sampler`. If none is provided, the built-in `random` function will be used.
-
+- `MonteCarlo(sampler: Sampler = None)`: Create a new MonteCarlo with a specified `Sampler`.
 - `.simulate(n: int = 1e3)`: Run `n` trials and collect the results.
 - `.frequencies() -> dict[Hashable, float]`: Calculate the frequency of each sample value.
 - `.proportion(filter: Callable[[Hashable], bool] = lambda _: True) -> float`: Calculate the proportion of samples that satisfy a given condition. This is an empirical probability mass function (pmf).

@@ -2,6 +2,10 @@
 
 Trivially simple Monte Carlo simulations in Python
 
+```zsh
+pip3 install git+ssh://git@github.com/haydenhigg/monte-carlo
+```
+
 ## example
 
 ```py

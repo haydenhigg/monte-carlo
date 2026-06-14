@@ -32,7 +32,7 @@ class Normal(Sampler):
     def sample(self) -> Hashable:
         return self.mean + gauss() * self.std_dev
 
-class ChiSquare(Sampler):
+class ChiSquared(Sampler):
     def __init__(self, df: int = 1):
         self.df = max(df, 1)
 
@@ -48,10 +48,10 @@ class StudentT(Sampler):
     def __init__(self, df: int = 1):
        self.df = max(df, 1)
        self.normal = Normal()
-       self.chi_square = ChiSquare(self.df)
+       self.chi_squared = ChiSquared(self.df)
 
     def sample(self) -> float:
-        return self.normal.sample() / sqrt(self.chi_square.sample() / self.df)
+        return self.normal.sample() / sqrt(self.chi_squarde.sample() / self.df)
 
 class MonteCarlo:
     def __init__(self, sampler: Sampler = None):

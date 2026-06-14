@@ -101,8 +101,8 @@ class MonteCarlo:
         self,
         width: int = 79,
         height: int = 23,
-        low: Hashable = None,
-        high: Hashable = None,
+        low: float = None,
+        high: float = None,
     ) -> str:
         # calculate buckets
         min_displayable = 0.125 / height

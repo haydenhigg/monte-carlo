@@ -1,9 +1,9 @@
-from monte_carlo import MonteCarlo, Normal, ChiSquare, StudentT
-from statistics import stdev
+from monte_carlo import MonteCarlo, StudentT
+from random import random
+from math import sqrt
 
-mc = MonteCarlo(Normal()(3))
+mc = MonteCarlo(StudentT(4))
 
-mc.simulate(100_000)
+mc.simulate(1e6)
 
-# print(mc.proportion(lambda x: abs(x) > 3))
-print(mc.visualize(domain=(-5, 5)))
+print(mc.proportion(lambda x: x < 1.190))

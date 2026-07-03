@@ -51,7 +51,7 @@ class StudentT(Sampler):
        self.chi_squared = ChiSquared(self.df)
 
     def sample(self) -> float:
-        return self.normal.sample() / sqrt(self.chi_squarde.sample() / self.df)
+        return self.normal.sample() / sqrt(self.chi_squared.sample() / self.df)
 
 class MonteCarlo:
     def __init__(self, sampler: Sampler = None):

@@ -45,9 +45,9 @@ class ChiSquared(Sampler):
         return ss
 
 class StudentT(Sampler):
-    def __init__(self, df: int = 1):
+    def __init__(self, df: int = 1, mean: float = 0, std_dev: float = 1):
        self.df = max(df, 1)
-       self.normal = Normal()
+       self.normal = Normal(mean, std_dev)
        self.chi_squared = ChiSquared(self.df)
 
     def sample(self) -> float:

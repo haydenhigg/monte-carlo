@@ -64,7 +64,7 @@ Some basic `Sampler` classes are provided in this package:
 
 - `Normal(mean: float = 0, std_dev: float = 1)`: Draw samples from a Gaussian distribution with the given parameters.
 - `ChiSquared(df: int = 1)`: Draw samples from a chi-squared distribution with the given degrees of freedom.
-- `StudentT(df: int = 1)`: Draw samples from a Student-T distribution with the given degrees of freedom.
+- `StudentT(df: int = 1, mean: float = 0, std_dev: float = 1)`: Draw samples from a Student-T distribution with the given degrees of freedom.
 - `Function(function: Callable[[], Hashable])`: Draw samples from `function()`.
 - `Mixture(a: Sampler, b: Sampler, function: Callable[[Hashable, Hashable], Hashable])`: Draw samples from `function(a.sample(), b.sample())`. This is for composing multiple Samplers without creating a new `Sampler` subclass manually.
 

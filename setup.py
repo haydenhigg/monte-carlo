@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='monte-carlo',
-    version='1.0.0',
+    version='1.0.1',
     description='Trivially simple Monte Carlo simulations in Python',
     url='https://github.com/haydenhigg/monte-carlo',
     author='Hayden Higginbotham',
